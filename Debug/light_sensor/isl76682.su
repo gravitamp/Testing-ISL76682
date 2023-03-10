@@ -1,0 +1,2 @@
+../light_sensor/isl76682.c:35:5:isl76682_init	40	static
+../light_sensor/isl76682.c:65:5:isl76682_read	40	static
