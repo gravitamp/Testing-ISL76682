@@ -57,10 +57,6 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define LED_KIRI_Pin GPIO_PIN_0
-#define LED_KIRI_GPIO_Port GPIOA
-#define LED_KANAN_Pin GPIO_PIN_1
-#define LED_KANAN_GPIO_Port GPIOA
 #define TEMP1_Pin GPIO_PIN_4
 #define TEMP1_GPIO_Port GPIOC
 #define TEMP2_Pin GPIO_PIN_5

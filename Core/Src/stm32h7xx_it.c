@@ -59,9 +59,8 @@ extern FDCAN_HandleTypeDef hfdcan1;
 extern SDRAM_HandleTypeDef hsdram1;
 extern I2C_HandleTypeDef hi2c4;
 extern LTDC_HandleTypeDef hltdc;
-extern TIM_HandleTypeDef htim2;
-extern TIM_HandleTypeDef htim1;
-
+extern DMA_HandleTypeDef hdma_tim3_ch1;
+extern TIM_HandleTypeDef htim3;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -191,7 +190,7 @@ void SysTick_Handler(void)
   /* USER CODE BEGIN SysTick_IRQn 0 */
 
   /* USER CODE END SysTick_IRQn 0 */
-
+  HAL_IncTick();
   /* USER CODE BEGIN SysTick_IRQn 1 */
 
   /* USER CODE END SysTick_IRQn 1 */
@@ -205,16 +204,17 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /**
-  * @brief This function handles RCC global interrupt.
+  * @brief This function handles DMA1 stream1 global interrupt.
   */
-void RCC_IRQHandler(void)
+void DMA1_Stream1_IRQHandler(void)
 {
-  /* USER CODE BEGIN RCC_IRQn 0 */
+  /* USER CODE BEGIN DMA1_Stream1_IRQn 0 */
 
-  /* USER CODE END RCC_IRQn 0 */
-  /* USER CODE BEGIN RCC_IRQn 1 */
+  /* USER CODE END DMA1_Stream1_IRQn 0 */
+  HAL_DMA_IRQHandler(&hdma_tim3_ch1);
+  /* USER CODE BEGIN DMA1_Stream1_IRQn 1 */
 
-  /* USER CODE END RCC_IRQn 1 */
+  /* USER CODE END DMA1_Stream1_IRQn 1 */
 }
 
 /**
@@ -232,31 +232,17 @@ void FDCAN1_IT0_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles TIM1 update interrupt.
+  * @brief This function handles TIM3 global interrupt.
   */
-void TIM1_UP_IRQHandler(void)
+void TIM3_IRQHandler(void)
 {
-  /* USER CODE BEGIN TIM1_UP_IRQn 0 */
+  /* USER CODE BEGIN TIM3_IRQn 0 */
 
-  /* USER CODE END TIM1_UP_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim1);
-  /* USER CODE BEGIN TIM1_UP_IRQn 1 */
+  /* USER CODE END TIM3_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim3);
+  /* USER CODE BEGIN TIM3_IRQn 1 */
 
-  /* USER CODE END TIM1_UP_IRQn 1 */
-}
-
-/**
-  * @brief This function handles TIM2 global interrupt.
-  */
-void TIM2_IRQHandler(void)
-{
-  /* USER CODE BEGIN TIM2_IRQn 0 */
-
-  /* USER CODE END TIM2_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim2);
-  /* USER CODE BEGIN TIM2_IRQn 1 */
-
-  /* USER CODE END TIM2_IRQn 1 */
+  /* USER CODE END TIM3_IRQn 1 */
 }
 
 /**
